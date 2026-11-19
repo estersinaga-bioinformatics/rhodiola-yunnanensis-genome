@@ -1,0 +1,21 @@
+
+name: Check bioinformatics scripts
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check-bash:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get repository files
+        uses: actions/checkout@v6
+
+      - name: Check Bash syntax
+        run: bash -n scripts/01_project_setup.sh
+
+      - name: Confirm successful check
+        run: echo "Bash syntax check passed!"
