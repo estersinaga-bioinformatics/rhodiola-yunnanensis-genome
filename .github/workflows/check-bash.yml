@@ -4,6 +4,8 @@ name: Check bioinformatics scripts
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -14,8 +16,13 @@ jobs:
       - name: Get repository files
         uses: actions/checkout@v6
 
-      - name: Check Bash syntax
-        run: bash -n scripts/01_project_setup.sh
+      - name: Check all Bash scripts
+        run: |
+          find scripts -type f -name "*.sh" -print0 |
+          while IFS= read -r -d '' script; do
+            echo "Checking $script"
+            bash -n "$script"
+          done
 
       - name: Confirm successful check
-        run: echo "Bash syntax check passed!"
+        run: echo "All Bash scripts passed syntax validation!"
