@@ -4,65 +4,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhodiola yunnanensis Genome Analysis</title>
+
+    <title>Rhodiola yunnanensis | Genome Analysis</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 900px;
+            max-width: 950px;
             margin: 50px auto;
-            padding: 0 20px;
+            padding: 0 25px;
             line-height: 1.7;
             color: #333;
+            background-color: #fff;
         }
 
-        h1, h2 {
+        h1, h2, h3 {
             color: #234b3a;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
         }
 
         a {
             color: #287a57;
+            text-decoration: none;
         }
 
-        section {
-            margin-top: 35px;
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 17px;
+        }
+
+        .status {
+            color: #287a57;
+            font-weight: bold;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .reference {
+            margin-bottom: 18px;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            color: #777;
+            font-size: 13px;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>Genome Analysis of <i>Rhodiola yunnanensis</i></h1>
+    <header>
+        <h1>Genome Analysis of <i>Rhodiola yunnanensis</i></h1>
 
-    <p>
-        A plant genomics and bioinformatics project exploring
-        publicly available sequencing data from NCBI.
-    </p>
+        <p class="subtitle">
+            Genome assembly and annotation of a medicinal plant species
+        </p>
+    </header>
 
     <section>
-        <h2>About the project</h2>
+        <h2>1. Project overview</h2>
+
         <p>
-            This project follows a published genome study of
-            <i>Rhodiola yunnanensis</i>, from raw sequencing data
-            preparation to genome assembly and annotation.
+            This project focuses on the genome analysis of
+            <i>Rhodiola yunnanensis</i> using publicly available
+            sequencing data from the National Center for Biotechnology
+            Information (NCBI).
+        </p>
+
+        <p>
+            The analysis follows the workflow described in a published
+            genome study, covering raw sequencing data preparation,
+            quality assessment, genome survey, genome assembly,
+            assembly evaluation, and genome annotation.
         </p>
     </section>
 
     <section>
-        <h2>Analysis workflow</h2>
-        <ol>
-            <li>Project setup</li>
-            <li>Sequencing data download and validation</li>
-            <li>SRA to FASTQ conversion</li>
-            <li>Quality control using FastQC</li>
-            <li>Genome survey</li>
-            <li>Genome assembly</li>
-            <li>Assembly evaluation</li>
-            <li>Genome annotation</li>
-        </ol>
+        <h2>2. Research objectives</h2>
+
+        <ul>
+            <li>Prepare and assess publicly available sequencing data.</li>
+            <li>Estimate genome characteristics using k-mer analysis.</li>
+            <li>Perform genome assembly and evaluate assembly quality.</li>
+            <li>Annotate repetitive sequences and protein-coding genes.</li>
+            <li>Compare the analysis results with the published genome study.</li>
+        </ul>
     </section>
 
     <section>
-        <h2>Quality control results</h2>
+        <h2>3. Data sources</h2>
+
+        <ul>
+            <li>
+                <strong>NCBI BioProject:</strong>
+                <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1353568">
+                    PRJNA1353568
+                </a>
+            </li>
+
+            <li>
+                <strong>DNBSEQ-T7 WGS:</strong>
+                <a href="https://www.ncbi.nlm.nih.gov/sra/SRR35889594">
+                    SRR35889594
+                </a>
+            </li>
+
+            <li>
+                <strong>ONT PromethION:</strong>
+                <a href="https://www.ncbi.nlm.nih.gov/sra/SRR35888830">
+                    SRR35888830
+                </a>
+            </li>
+
+            <li>
+                <strong>Hi-C:</strong>
+                <a href="https://www.ncbi.nlm.nih.gov/sra/SRR35896369">
+                    SRR35896369
+                </a>
+            </li>
+
+            <li>
+                <strong>RNA-seq:</strong>
+                SRR35896530, SRR35896531, SRR35896532
+            </li>
+
+            <li>
+                <strong>Reference assembly:</strong>
+                <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_055615915.1/">
+                    GCA_055615915.1
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Analysis workflow</h2>
+
+        <h3>Stage 1. Project setup</h3>
+        <p>
+            Preparation of the project directory, computational
+            environment, and bioinformatics software.
+        </p>
+        <p>
+            <a href="scripts/01_project_setup.sh">
+                View setup script
+            </a>
+        </p>
+
+        <h3>Stage 2. Data download and validation</h3>
+        <p>
+            Retrieval of the DNBSEQ sequencing dataset from NCBI
+            and validation of the downloaded SRA file.
+        </p>
+        <p>
+            <a href="scripts/02_data_download_validation.sh">
+                View download and validation script
+            </a>
+        </p>
+
+        <h3>Stage 3. SRA to FASTQ conversion</h3>
+        <p>
+            Conversion of the SRA file into paired-end FASTQ files
+            and verification of the resulting reads.
+        </p>
+        <p>
+            <a href="scripts/03_sra_to_fastq.sh">
+                View conversion script
+            </a>
+        </p>
+
+        <h3>Stage 4. Quality control</h3>
+        <p>
+            Assessment of sequencing read quality using FastQC.
+        </p>
+        <p>
+            <a href="scripts/04_quality_control.sh">
+                View FastQC script
+            </a>
+        </p>
+
+        <p>
+            <strong>FastQC reports:</strong>
+        </p>
         <ul>
             <li>
                 <a href="results/SRR35889594_1_fastqc.html">
@@ -75,17 +216,63 @@
                 </a>
             </li>
         </ul>
+
+        <h3>Upcoming stages</h3>
+        <ol>
+            <li>Genome survey and k-mer analysis</li>
+            <li>Genome assembly</li>
+            <li>Assembly evaluation</li>
+            <li>Scaffolding</li>
+            <li>Genome annotation</li>
+        </ol>
     </section>
 
     <section>
-        <h2>Project repository</h2>
+        <h2>5. Software and tools</h2>
+
+        <ul>
+            <li>SRA Toolkit – sequencing data retrieval and conversion</li>
+            <li>FastQC – sequencing quality assessment</li>
+            <li>MultiQC – quality report aggregation</li>
+            <li>SeqKit – FASTA and FASTQ inspection</li>
+            <li>Jellyfish – k-mer counting</li>
+        </ul>
+
         <p>
-            <a href="https://github.com/estersinaga-bioinformatics/rhodiola-yunnanensis-genome">
-                View source code and project files on GitHub
-            </a>
+            Additional tools will be documented as the analysis progresses.
         </p>
     </section>
 
+    <section>
+        <h2>6. Scientific references</h2>
+
+        <div class="reference">
+            <p>
+                <strong>Primary reference genome study</strong>
+            </p>
+
+            <p>
+                A near telomere-to-telomere chromosome-level genome
+                assembly of <i>Rhodiola yunnanensis</i> (Crassulaceae).
+            </p>
+
+            <p>
+                <a href="https://doi.org/10.1038/s41597-026-07044-2">
+                    https://doi.org/10.1038/s41597-026-07044-2
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            <a href="https://github.com/estersinaga-bioinformatics/rhodiola-yunnanensis-genome">
+                View project repository on GitHub
+            </a>
+        </p>
+
+        <p>Research portfolio | Plant genomics and bioinformatics</p>
+    </footer>
+
 </body>
 </html>
-
